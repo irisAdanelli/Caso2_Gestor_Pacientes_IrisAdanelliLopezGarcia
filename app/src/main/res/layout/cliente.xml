@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    android:background="#e9beff">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Nombre"
+                android:textColor="#d2004d"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lastname"
+                android:padding="5dp"
+                android:text="Direccion"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtCelular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/middlename"
+                android:padding="5dp"
+                android:text="Celular"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/middlename"
+                android:padding="5dp"
+                android:text="Fecha"
+                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_below="@+id/middlename"
+                    android:layout_marginRight="2dp"
+                    android:layout_toLeftOf="@+id/btnDelete"
+                    android:layout_weight="1"
+                    android:drawableLeft="@android:drawable/ic_menu_edit"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/btnDelete"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/middlename"
+                    android:layout_weight="1"
+                    android:drawableLeft="@android:drawable/ic_delete"
+                    android:padding="5dp"
+                    android:textColor="#c60056" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
