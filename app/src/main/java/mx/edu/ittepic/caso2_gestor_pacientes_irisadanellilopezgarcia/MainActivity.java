@@ -1,47 +1,49 @@
-package mx.edu.ittepic.caso2_gestor_pacientes_irisadanellilopezgarcia;
+package co.quindio.sena.ejemplosqlite;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity
-{
-    Button btnSalir, btnObras, btnTrabajadores;
+import co.quindio.sena.ejemplosqlite.actividades.ListaMadicamentos;
+import co.quindio.sena.ejemplosqlite.actividades.RegistroMedicamento;
+import co.quindio.sena.ejemplosqlite.alumnos.ConsultarPacientes;
+import co.quindio.sena.ejemplosqlite.alumnos.ListaPacientesRecycler;
+import co.quindio.sena.ejemplosqlite.alumnos.RegistroPacientes;
+
+public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fnStrartingButtons();
-        btnTrabajadores.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goWorkers = new Intent(getApplicationContext(),Clientes.class);
-                startActivity(goWorkers);
-            }
-        });
-
-        btnObras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goBuildings = new Intent(getApplicationContext(),Buildings.class);
-                startActivity(goBuildings);
-            }
-        });
-
-        btnSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+       // ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
+        ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this,"alumnos",null,1);
     }
 
-    void fnStrartingButtons(){
-        btnSalir = findViewById(R.id.btnSalir);
-        btnObras = findViewById(R.id.btnRecetas);
-        btnTrabajadores = findViewById(R.id.btnClientes);
+    public void onClick(View view) {
+        Intent miIntent=null;
+        switch (view.getId()){
+            case R.id.btnOpcionRegistro:
+                miIntent=new Intent(MainActivity.this,RegistroPacientes.class);
+                break;
+            case R.id.btnRegistroMed:
+                miIntent=new Intent(MainActivity.this,RegistroMedicamento.class);
+                break;
+            case R.id.btnConsultaIndividual:
+                miIntent=new Intent(MainActivity.this,ConsultarPacientes.class);
+                break;
+            case R.id.btnConsultaListaMed:
+                miIntent=new Intent(MainActivity.this,ListaMadicamentos.class);
+                break;
+            case R.id.btnConsultaListaPersonasRecycler:
+                miIntent=new Intent(MainActivity.this,ListaPacientesRecycler.class);
+                break;
+        }
+        if (miIntent!=null){
+            startActivity(miIntent);
+        }
+
     }
 }
